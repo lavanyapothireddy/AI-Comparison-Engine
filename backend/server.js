@@ -24,15 +24,17 @@ app.get("/models", async (req, res) => {
     // Filter only active chat models (exclude audio/guard/tts models)
     const chatModels = data.data
       .filter(
-        (m) =>
-          m.active &&
-          !m.id.includes("whisper") &&
-          !m.id.includes("guard") &&
-          !m.id.includes("tts") &&
-          !m.id.includes("safeguard") &&
-          !m.id.includes("prompt-guard") &&
-          !m.id.includes("distil")
-      )
+  (m) =>
+    m.active &&
+    !m.id.includes("whisper") &&
+    !m.id.includes("guard") &&
+    !m.id.includes("tts") &&
+    !m.id.includes("safeguard") &&
+    !m.id.includes("prompt-guard") &&
+    !m.id.includes("distil") &&
+    !m.id.includes("canopylabs") &&
+    !m.id.includes("orpheus")
+)
       .map((m) => ({
         id: m.id,
         name: m.id
