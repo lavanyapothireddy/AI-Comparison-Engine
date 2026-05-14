@@ -10,13 +10,18 @@ app.use(express.json());
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 // Available models to compare
+// NEW - replace with these active models
 const AVAILABLE_MODELS = [
-  { id: "llama3-8b-8192",        name: "LLaMA 3 8B"        },
-  { id: "llama3-70b-8192",       name: "LLaMA 3 70B"       },
-  { id: "mixtral-8x7b-32768",    name: "Mixtral 8x7B"      },
-  { id: "gemma2-9b-it",          name: "Gemma 2 9B"        },
-  { id: "llama-3.1-8b-instant",  name: "LLaMA 3.1 8B"      },
-  { id: "llama-3.3-70b-versatile", name: "LLaMA 3.3 70B"  },
+  { id: "llama-3.1-8b-instant",        name: "LLaMA 3.1 8B Instant"   },
+  { id: "llama-3.3-70b-versatile",     name: "LLaMA 3.3 70B Versatile"},
+  { id: "llama3-groq-8b-8192-tool-use-preview",  name: "LLaMA 3 Groq 8B"  },
+  { id: "llama3-groq-70b-8192-tool-use-preview", name: "LLaMA 3 Groq 70B" },
+  { id: "gemma2-9b-it",                name: "Gemma 2 9B"              },
+  { id: "gemma-7b-it",                 name: "Gemma 7B"                },
+  { id: "llama-guard-3-8b",            name: "LLaMA Guard 3 8B"        },
+  { id: "mistral-saba-24b",            name: "Mistral Saba 24B"        },
+  { id: "qwen-qwq-32b",               name: "Qwen QwQ 32B"            },
+  { id: "deepseek-r1-distill-llama-70b", name: "DeepSeek R1 70B"      },
 ];
 
 // GET /models — return available model list
