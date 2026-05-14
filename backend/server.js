@@ -33,7 +33,8 @@ app.get("/models", async (req, res) => {
     !m.id.includes("prompt-guard") &&
     !m.id.includes("distil") &&
     !m.id.includes("canopylabs") &&
-    !m.id.includes("orpheus")
+    !m.id.includes("orpheus") &&
+    !m.id.includes("qwen")
 )
       .map((m) => ({
         id: m.id,
