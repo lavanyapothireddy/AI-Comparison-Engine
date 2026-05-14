@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Comparison Engine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <div class="logo">⚡ AI Comparison Engine</div>
+    <span class="badge">Powered by Groq</span>
+  </header>
+
+  <main>
+    <!-- Config Panel -->
+    <section class="config-panel">
+      <div class="input-group">
+        <label>System Prompt <span class="optional">(optional)</span></label>
+        <textarea id="systemPrompt" rows="2" placeholder="You are a helpful assistant..."></textarea>
+      </div>
+
+      <div class="input-group">
+        <label>Your Prompt *</label>
+        <textarea id="userPrompt" rows="4" placeholder="Enter your prompt to compare across models..."></textarea>
+      </div>
+
+      <div class="row">
+        <div class="input-group">
+          <label>Temperature: <span id="tempVal">0.7</span></label>
+          <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7"/>
+        </div>
+        <div class="input-group">
+          <label>Max Tokens: <span id="tokensVal">1024</span></label>
+          <input type="range" id="maxTokens" min="128" max="4096" step="128" value="1024"/>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Select Models to Compare</label>
+        <div id="modelCheckboxes" class="model-grid">
+          <div class="loading-models">Loading models...</div>
+        </div>
+      </div>
+
+      <button id="compareBtn" class="compare-btn" onclick="runComparison()">
+        <span id="btnText">▶ Run Comparison</span>
+        <span id="btnLoader" class="hidden">⏳ Comparing...</span>
+      </button>
+    </section>
+
+    <!-- Results -->
+    <section id="resultsSection" class="results-section hidden">
+      <div class="results-header">
+        <h2>Results</h2>
+        <div class="meta" id="resultsMeta"></div>
+      </div>
+      <div id="resultsGrid" class="results-grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
