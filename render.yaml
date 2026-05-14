@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: ai-form-detector-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: |
+      apt-get install -y tesseract-ocr &&
+      pip install -r requirements.txt &&
+      if [ ! -f model/form_classifier.pkl ]; then
+        echo "Model not found, training now..." &&
+        python train_model.py
+      fi
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
