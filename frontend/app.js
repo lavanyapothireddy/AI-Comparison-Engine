@@ -1,5 +1,5 @@
 // ← Change this to your deployed Render backend URL after deploy
-const API_BASE = "https://your-backend.onrender.com";
+const API_BASE = "https://ai-comparison-engine.onrender.com";
 
 let selectedModels = new Set();
 
